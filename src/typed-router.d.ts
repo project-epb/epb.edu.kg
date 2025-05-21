@@ -19,5 +19,6 @@ declare module 'vue-router/auto-routes' {
    */
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
+    '/[...fallback]': RouteRecordInfo<'/[...fallback]', '/:fallback(.*)', { fallback: ParamValue<true> }, { fallback: ParamValue<false> }>,
   }
 }

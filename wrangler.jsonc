@@ -1,0 +1,13 @@
+{
+  "name": "epb-edu-kg",
+  "compatibility_date": "2025-05-07",
+  "main": "./backend/index.ts",
+  "assets": {
+    "not_found_handling": "single-page-application",
+  },
+  "observability": {
+    "logs": {
+      "enabled": true,
+    },
+  },
+}
