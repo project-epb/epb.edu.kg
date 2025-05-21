@@ -5,7 +5,10 @@
 
   //- 主页横幅
   section.banner.relative.h-80.overflow-hidden
-    img.w-full.h-full.object-cover(src='https://placehold.co/1920x500', alt='学校全景')
+    img.w-full.h-full.object-cover(
+      src='https://r2.epb.wiki/-/d/dc/dc96da4eba15edfc3526a2797e606b3c9a1f1a92.jpeg',
+      alt='学校全景'
+    )
     .absolute.inset-0.bg-black.bg-opacity-40.flex.items-center.justify-center
       .text-center.text-white.p-6
         h2.text-4xl.font-bold.mb-4 吉尔吉斯斯坦国立兽耳娘小学
@@ -62,7 +65,7 @@
           ContactItem(icon='✉️', title='邮箱', content='admin@epb.edu.kg')
           ContactItem(icon='🕒', title='办公时间', content='星期八，全天开放')
         .rounded-lg.overflow-hidden.shadow-lg
-          img.w-full.h-full.object-cover(src='https://placehold.co/600x400', alt='学校地图')
+          img.w-full.h-full.object-cover(src='https://placehold.co/400x400?text=Map+of+school', alt='学校地图')
 
   //- 页脚
   GlobalFooter(@scrollToAnchor='scrollToAnchor')
@@ -80,22 +83,22 @@ const scrollToAnchor = (event: Event, anchor: string) => {
 
 const newsList = ref([
   {
-    image: 'https://placehold.co/400x300',
-    date: '2025年5月15日',
+    image: 'https://r2.epb.wiki/-/7/7b/7b83ffaf022dd3472dce24184e539050750356ed.png',
+    date: '20xx年5月20日',
     title: '校园文化节圆满结束',
-    summary: '本届校园文化节以"传统与创新"为主题，展示了学生们丰富多彩的才艺和创意...',
+    summary: '本届校园文化节以"传统与创新"为主题，展示了学生们丰富多彩的才艺和创意……',
   },
   {
-    image: 'https://placehold.co/400x300',
-    date: '2025年5月10日',
+    image: 'https://r2.epb.wiki/-/f/ff/ff3bf42de6c3624e3ccd984deb859496ef0885be.png',
+    date: '20xx年5月10日',
     title: '我校学生在全国数学竞赛中获得佳绩',
-    summary: '在日前举行的全国小学生数学竞赛中，我校三年级学生李明获得了金奖...',
+    summary: '在日前举行的全国小学生数学竞赛中，我校三年级学生小美获得了金奖……',
   },
   {
-    image: 'https://placehold.co/400x300',
-    date: '2025年5月5日',
-    title: '2025学年招生简章发布',
-    summary: '我校2025学年招生工作即将开始，招生对象为年满6周岁的适龄儿童...',
+    image: 'https://r2.epb.wiki/-/c/cc/cc245fc858f8613de3fc66638450e15b401120b3.png',
+    date: '20xx年5月5日',
+    title: '20xx学年招生简章发布',
+    summary: '我校20xx学年招生工作即将开始，招生对象为年满6周岁的适龄兽耳娘……',
   },
 ])
 
