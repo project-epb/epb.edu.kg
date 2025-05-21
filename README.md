@@ -1,33 +1,21 @@
-# epb-edu-kg
+<div align="center">
 
-This template should help get you started developing with Vue 3 in Vite.
+![](https://epb.edu.kg/logo.png)
 
-## Recommended IDE Setup
+# 吉尔吉斯斯坦国立兽耳娘小学校
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+吉吉国兽耳娘小学
 
-## Type Support for `.vue` Imports in TS
+https://epb.edu.kg/
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+</div>
 
-## Customize configuration
+本网站所有内容均为虚构，仅供学习和娱乐使用。任何与现实中存在的学校、组织或个人的相似之处纯属巧合。
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+如需申请 edu 邮箱：请通过 issues 发送您的兽耳娘 cos 照；或通过电子邮件 admin[at]epb.edu.kg 发送兽耳萝莉涩图（
 
-## Project Setup
+---
 
-```sh
-pnpm install
-```
+2025 © 吉尔吉斯斯坦国立兽耳娘小学 (epb.edu.kg)，保留所有权利
 
-### Compile and Hot-Reload for Development
-
-```sh
-pnpm dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-pnpm build
-```
+@dragon-fish 用 💖 设计、开发与维护
