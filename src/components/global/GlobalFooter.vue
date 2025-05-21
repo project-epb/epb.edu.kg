@@ -40,7 +40,7 @@ footer.bg-gray-800.text-white.py-8
         //-     li
         //-       a.text-gray-400.hover-text-white.transition-colors(href='#') 隐私政策
     .border-t.border-gray-700.mt-8.pt-8.text-center.text-gray-400
-      p {{ displayYear }} &copy; 吉尔吉斯斯坦国立兽耳娘小学 (epb.edu.kg)，保留所有权利
+      p {{ displayYear }} &copy; 吉尔吉斯斯坦国立兽耳娘小学 (epb.edu.kg)，保留所有权利。
       p 免责声明：本网站所有内容均为虚构，仅供学习和娱乐使用。任何与现实中存在的学校、组织或个人的相似之处纯属巧合。
       p
         a.text-gray-400.hover-text-white.transition-colors.decoration-underline(
@@ -49,6 +49,13 @@ footer.bg-gray-800.text-white.py-8
         ) Dragon Fish
         |
         | 用 💖 设计、开发与维护
+        | &nbsp;|&nbsp;
+        | 在&nbsp;
+        a.text-gray-400.hover-text-white.transition-colors.decoration-underline(
+          href='https://github.com/project-epb/epb.edu.kg',
+          target='_blank'
+        ) GitHub
+        | &nbsp;上查看源代码
 </template>
 
 <script setup lang="ts">
