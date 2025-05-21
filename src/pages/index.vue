@@ -18,7 +18,7 @@
 
   //- 学校简介
   section#about.py-16.bg-white
-    .container.mx-auto.px-4
+    .main-container.mx-auto.px-4
       SectionTitle(title='学校简介')
       .flex.flex-col.md-flex-row.gap-8.items-center
         div(md:w='1/2')
@@ -31,7 +31,7 @@
 
   //- 新闻公告
   section#news.py-16.bg-gray-50
-    .container.mx-auto.px-4
+    .main-container.mx-auto.px-4
       SectionTitle(title='新闻公告')
       .grid.grid-cols-1.md-grid-cols-2.lg-grid-cols-3.gap-6
         //- 使用组件渲染新闻卡片
@@ -39,22 +39,22 @@
 
   //- 师资力量
   section#teachers.py-16.bg-white
-    .container.mx-auto.px-4
+    .main-container.mx-auto.px-4
       SectionTitle(title='师资力量')
       .grid.grid-cols-1.md-grid-cols-3.lg-grid-cols-4.gap-6
         //- 使用组件渲染教师卡片
         TeacherCard(v-for='(teacher, index) in teachersList', :key='index', v-bind='teacher')
 
   //- 校园环境
-  section.py-16.bg-gray-50
-    .container.mx-auto.px-4
+  section.py-16.bg-gray-50.main-container
+    .main-container.mx-auto.px-4
       SectionTitle(title='校园环境')
       .grid.grid-cols-1.md-grid-cols-2.lg-grid-cols-3.gap-4
         ImageCard(v-for='(image, index) in imageList', :key='image.src', :src='image.src', :alt='image.alt')
 
   //- 联系我们
   section#contact.py-16.bg-pink-600.text-white
-    .container.mx-auto.px-4
+    .main-container.mx-auto.px-4
       SectionTitle(title='联系我们', isWhite)
       .grid.grid-cols-1.md-grid-cols-2.gap-8
         .bg-white.text-gray-800.p-8.rounded-lg.shadow-lg
