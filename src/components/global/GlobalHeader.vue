@@ -20,7 +20,7 @@ header.bg-pink-600.text-white.shadow-md
 
 <script setup lang="ts">
 const emit = defineEmits<{
-  scrollToAnchor: (event: Event, anchor: string) => void
+  scrollToAnchor: [event: Event, anchor: string]
 }>()
 </script>
 

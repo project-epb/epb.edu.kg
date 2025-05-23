@@ -1,11 +1,19 @@
 {
-  "files": [],
+  "compilerOptions": {
+    "rootDir": "./",
+    "baseUrl": "./",
+    "noEmit": true,
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true
+  },
   "references": [
     {
-      "path": "./tsconfig.node.json"
+      "path": "./tsconfig.app.json"
     },
     {
-      "path": "./tsconfig.app.json"
+      "path": "./backend/tsconfig.json"
     }
   ],
   "vueCompilerOptions": {
