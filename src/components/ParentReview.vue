@@ -1,30 +1,121 @@
 <template lang="pug">
-.bg-gradient-to-br.from-pink-50.to-purple-50.rounded-xl.shadow-lg.p-6.border.border-pink-100.relative.overflow-hidden
-  //- 背景装饰
-  .absolute.top-0.right-0.w-20.h-20.bg-gradient-to-br.from-pink-200.to-purple-200.rounded-full.opacity-20.transform.translate-x-6.-translate-y-6
-  .absolute.bottom-0.left-0.w-16.h-16.bg-gradient-to-br.from-purple-200.to-pink-200.rounded-full.opacity-15.transform.-translate-x-4.translate-y-4
-
-  //- 引用图标
-  .absolute.top-4.left-4.text-20.text-pink-300.opacity-50.leading-20 “
-
-  //- 评价内容
-  .relative.z-10
-    .text-gray-700.text-base.leading-relaxed.mb-6.pl-8 {{ content }}
-
-    //- 家长信息
-    .flex.items-center.gap-4
-      .w-12.h-12.rounded-full.overflow-hidden.border-2.border-pink-300.shadow-md
-        img.w-full.h-full.object-cover(:src='avatar', :alt='`${name}头像`')
-      div
-        .font-semibold.text-gray-800.text-lg {{ name }}
-        .text-pink-600.text-sm.font-medium {{ identity }}
+.parent-review.flex.gap-4.items-start(:class='directionClass')
+  //- 头像
+  .parent-review__avatar.shrink-0.w-16.h-16.nb-border.nb-shadow-sm.rounded-lg.overflow-hidden.bg-white(
+    :class='avatarTiltClass'
+  )
+    img.w-full.h-full.object-cover(:src='avatar', :alt='`${name} 头像`', loading='lazy')
+  //- 气泡 + 署名
+  .parent-review__main.flex-1.min-w-0
+    .parent-review__bubble.relative.nb-card.p-5.font-medium.text-black.leading-relaxed(
+      :class='bubbleColorClass',
+      :style='bubbleStyle'
+    )
+      p.text-base {{ content }}
+      //- 气泡尾巴
+      .parent-review__tail(:class='tailClass')
+    //- 署名
+    .parent-review__sig.mt-3.font-bold.text-sm.text-black.flex.flex-wrap.gap-x-2.gap-y-1(
+      :class='direction === "right" ? "justify-end text-right" : ""'
+    )
+      span.font-black {{ name }}
+      span.opacity-60 ·
+      span {{ identity }}
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  avatar: string
-  content: string
-  name: string
-  identity: string
-}>()
+type Direction = 'left' | 'right'
+type BubbleColor = 'pink' | 'yellow' | 'green' | 'purple'
+
+const props = withDefaults(
+  defineProps<{
+    avatar: string
+    content: string
+    name: string
+    identity: string
+    direction?: Direction
+    bubbleColor?: BubbleColor
+    tilt?: number
+  }>(),
+  {
+    direction: 'left',
+    bubbleColor: 'yellow',
+    tilt: 0,
+  }
+)
+
+const directionClass = computed(() => (props.direction === 'right' ? 'flex-row-reverse' : ''))
+
+const bubbleColorClass = computed(() => {
+  switch (props.bubbleColor) {
+    case 'pink':
+      return 'bg-brand-pinkHot/70'
+    case 'green':
+      return 'bg-brand-green/70'
+    case 'purple':
+      return 'bg-brand-purple/60'
+    case 'yellow':
+    default:
+      return 'bg-brand-yellow'
+  }
+})
+
+const bubbleStyle = computed(() => ({
+  transform: `rotate(${props.tilt}deg)`,
+}))
+
+const avatarTiltClass = computed(() => (props.tilt > 0 ? 'rotate-[-3deg]' : 'rotate-[3deg]'))
+
+const tailClass = computed(() => (props.direction === 'right' ? 'parent-review__tail--right' : 'parent-review__tail--left'))
 </script>
+
+<style scoped lang="sass">
+.parent-review__bubble
+  // 让气泡顶部圆角更大模拟对话框
+  border-top-left-radius: 4px
+
+.parent-review__tail
+  position: absolute
+  top: 18px
+  width: 0
+  height: 0
+
+  // 左侧（气泡尾巴向左指）
+  &--left
+    left: -18px
+    border-top: 12px solid transparent
+    border-bottom: 12px solid transparent
+    border-right: 18px solid #000
+    &::after
+      content: ''
+      position: absolute
+      top: -8px
+      left: 4px
+      border-top: 8px solid transparent
+      border-bottom: 8px solid transparent
+      border-right: 14px solid var(--tail-color, #FFE066)
+
+  &--right
+    right: -18px
+    border-top: 12px solid transparent
+    border-bottom: 12px solid transparent
+    border-left: 18px solid #000
+    &::after
+      content: ''
+      position: absolute
+      top: -8px
+      right: 4px
+      border-top: 8px solid transparent
+      border-bottom: 8px solid transparent
+      border-left: 14px solid var(--tail-color, #FFE066)
+
+.parent-review__bubble
+  &.bg-brand-yellow .parent-review__tail
+    --tail-color: #FFE066
+  &.bg-brand-pinkHot\/70 .parent-review__tail
+    --tail-color: #FFB6C8
+  &.bg-brand-green\/70 .parent-review__tail
+    --tail-color: #B5E89E
+  &.bg-brand-purple\/60 .parent-review__tail
+    --tail-color: #C9B8FA
+</style>

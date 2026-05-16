@@ -12,6 +12,7 @@ declare module 'vue' {
     ContactItem: typeof import('./components/ContactItem.vue')['default']
     GlobalFooter: typeof import('./components/global/GlobalFooter.vue')['default']
     GlobalHeader: typeof import('./components/global/GlobalHeader.vue')['default']
+    Highlight: typeof import('./components/Highlight.vue')['default']
     ImageCard: typeof import('./components/ImageCard.vue')['default']
     NewsCard: typeof import('./components/NewsCard.vue')['default']
     ParentReview: typeof import('./components/ParentReview.vue')['default']

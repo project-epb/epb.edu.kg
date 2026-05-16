@@ -28,3 +28,8 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+.wrangler
+
+.playwright-mcp
+.playwright-test

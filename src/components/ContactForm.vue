@@ -1,45 +1,46 @@
 <template lang="pug">
-.bg-white.text-gray-800.p-8.rounded-lg.shadow-lg
-  h3.text-2xl.font-semibold.mb-6 入学申请
-  p.text-gray-500.text-3.mb-6 请务必不要填写真实信息，否则会被时空管理员小鱼君直接传送到银河马桶。
-  form(@submit.prevent='submitForm')
-    .mb-4
-      label.block.text-sm.font-medium.text-gray-700.mb-2(for='name') 家长姓名 *
-      input#name.w-full.px-3.py-2.border.border-gray-300.rounded-md.focus-outline-none.focus-ring-2.focus-ring-pink-500.focus-border-transparent(
+.contact-form.nb-card.bg-white.p-6(md='p-8')
+  h3.font-display.text-3xl.font-black.text-black.mb-2 入学申请
+  p.text-black.font-medium.text-sm.mb-6.leading-relaxed
+    | 请务必不要填写真实信息，否则会被时空管理员小鱼君直接传送到银河马桶。
+  form.space-y-5(@submit.prevent='submitForm')
+    div
+      label.block.text-sm.font-black.text-black.mb-2(for='parentName') 家长姓名 *
+      input#parentName.nb-input(
         type='text',
         v-model='formData.parentName',
         required,
         placeholder='请输入您的姓名'
       )
-    .mb-4
-      label.block.text-sm.font-medium.text-gray-700.mb-2(for='name') 学生姓名 *
-      input#name.w-full.px-3.py-2.border.border-gray-300.rounded-md.focus-outline-none.focus-ring-2.focus-ring-pink-500.focus-border-transparent(
+    div
+      label.block.text-sm.font-black.text-black.mb-2(for='studentName') 学生姓名 *
+      input#studentName.nb-input(
         type='text',
         v-model='formData.studentName',
         required,
         placeholder='请输入孩子的姓名'
       )
-    .mb-4
-      label.block.text-sm.font-medium.text-gray-700.mb-2(for='email') 电子邮箱 *
-      input#email.w-full.px-3.py-2.border.border-gray-300.rounded-md.focus-outline-none.focus-ring-2.focus-ring-pink-500.focus-border-transparent(
+    div
+      label.block.text-sm.font-black.text-black.mb-2(for='email') 电子邮箱 *
+      input#email.nb-input(
         type='email',
         v-model='formData.email',
         required,
         placeholder='地球上的邮箱地址'
       )
-    .mb-6
-      label.block.text-sm.font-medium.text-gray-700.mb-2(for='message') 情况说明 *
-      textarea#message.w-full.px-3.py-2.border.border-gray-300.rounded-md.focus-outline-none.focus-ring-2.focus-ring-pink-500.focus-border-transparent.resize-none(
+    div
+      label.block.text-sm.font-black.text-black.mb-2(for='message') 情况说明 *
+      textarea#message.nb-input.resize-none(
         v-model='formData.message',
         required,
         rows='4',
         placeholder='例如：孩子是什么种族？孩子的年龄、性别、爱好是什么？孩子有什么特长？'
       )
-    button.w-full.bg-pink-500.hover-bg-pink-600.text-white.font-medium.py-2.px-4.rounded-md.transition-colors.duration-200(
+    button.nb-btn.bg-brand-pink.text-white.w-full.justify-center.text-lg(
       type='submit',
       :disabled='isSubmitting',
-      :style='isSubmitting ? { opacity: 0.5, cursor: "not-allowed" } : {}'
-    ) {{ isSubmitting ? '发送中...' : '发送申请' }}
+      :class='isSubmitting ? "opacity-50 cursor-not-allowed" : ""'
+    ) {{ isSubmitting ? '发送中...' : '发送申请 →' }}
 </template>
 
 <script setup lang="ts">
@@ -53,7 +54,6 @@ const formData = reactive({
 
 const isSubmitting = ref(false)
 
-// 恶搞提示
 const prankMessages = [
   '您的消息已成功发送到平行宇宙！由于时空管理员小鱼君正在第37001次跨维度会议中，预计回复时间为3-5个工作世纪。',
   '消息传送失败：狐务器正在进行萌化升级，所有消息将自动转换为"喵~"后发送。',
@@ -69,13 +69,11 @@ const submitForm = async () => {
 
   isSubmitting.value = true
 
-  // 模拟提交延迟
   await new Promise((resolve) => setTimeout(resolve, 1000))
 
   const randomMessage = prankMessages[Math.floor(Math.random() * prankMessages.length)]
   alert(randomMessage)
 
-  // 重置表单
   formData.parentName = ''
   formData.studentName = ''
   formData.email = ''
