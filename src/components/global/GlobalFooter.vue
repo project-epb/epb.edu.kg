@@ -22,8 +22,8 @@ footer.bg-cream.border-t-3.border-black.pt-12.pb-8.relative.overflow-hidden
         .nb-border-sm.bg-white.p-4.rounded-md.relative(class='shadow-[3px_3px_0_0_#000]')
           .absolute.nb-border-sm.bg-brand-pink.text-white.font-display.font-black.text-xs.tracking-widest.px-3.py-1(
             class='-top-3 -right-3 rotate-[8deg]'
-          ) ◢ DISCLAIMER
-          p.text-black.font-medium.text-sm.leading-relaxed 本网站所有内容均为虚构，仅用于小说世界观设定。任何与现实中存在的学校、组织或个人的相似之处纯属巧合。
+          ) ◢ 认真你就输了
+          p.text-black.font-medium.text-sm.leading-relaxed 本网站所有内容均为胡说八道（虚构），随时可能跑路。任何与现实中存在的学校、组织或小兽娘的相似之处纯属巧合，或者他们也是重度二次元。
         p.mt-4.text-sm.text-black.font-medium
           | 本网站属于
           |
